@@ -7,15 +7,15 @@ extension UIAlertController {
     /// - Parameters:
     ///   - text: text kind
     
-    func addTextViewer(text: TextViewerViewController.Kind) {
+    public func addTextViewer(text: TextViewerViewController.Kind) {
         let textViewer = TextViewerViewController(text: text)
         set(vc: textViewer)
     }
 }
 
-final class TextViewerViewController: UIViewController {
+public final class TextViewerViewController: UIViewController {
     
-    enum Kind {
+    public enum Kind {
         
         case text(String?)
         case attributedText([AttributedTextBlock])
@@ -50,7 +50,7 @@ final class TextViewerViewController: UIViewController {
         //preferredContentSize.height = self.textView.contentSize.height
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -58,11 +58,11 @@ final class TextViewerViewController: UIViewController {
         Log("has deinitialized")
     }
     
-    override func loadView() {
+    public override func loadView() {
         view = textView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -70,12 +70,12 @@ final class TextViewerViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         textView.scrollToTop()
     }
     
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         preferredContentSize.height = textView.contentSize.height
         

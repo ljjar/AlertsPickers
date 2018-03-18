@@ -8,7 +8,7 @@ extension UIAlertController {
     ///   - color: input color
     ///   - action: for selected color
     
-    func addColorPicker(color: UIColor = .black, selection: ColorPickerViewController.Selection?) {
+    public func addColorPicker(color: UIColor = .black, selection: ColorPickerViewController.Selection?) {
         let selection: ColorPickerViewController.Selection? = selection
         var color: UIColor = color
         
@@ -30,7 +30,7 @@ extension UIAlertController {
     }
 }
 
-class ColorPickerViewController: UIViewController {
+public class ColorPickerViewController: UIViewController {
     
     public typealias Selection = (UIColor) -> Swift.Void
     
@@ -83,7 +83,7 @@ class ColorPickerViewController: UIViewController {
         self.selection = selection
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         Log("preferredHeight = \(preferredHeight)")
         
@@ -132,7 +132,7 @@ class ColorPickerViewController: UIViewController {
         }
     }
 
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         preferredHeight = mainStackView.frame.maxY
     }

@@ -64,7 +64,7 @@ public extension String {
 }
 
 extension Array where Element: NSAttributedString {
-    func joined(separator: NSAttributedString) -> NSAttributedString {
+    public func joined(separator: NSAttributedString) -> NSAttributedString {
         var isFirst = true
         return self.reduce(NSMutableAttributedString()) {
             (r, e) in
@@ -78,7 +78,7 @@ extension Array where Element: NSAttributedString {
         }
     }
     
-    func joined(separator: String) -> NSAttributedString {
+    public func joined(separator: String) -> NSAttributedString {
         return joined(separator: NSAttributedString(string: separator))
     }
 }

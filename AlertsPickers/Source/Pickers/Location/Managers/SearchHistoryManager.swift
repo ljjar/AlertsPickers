@@ -52,7 +52,7 @@ extension CLLocationCoordinate2D {
 
 extension Location {
     
-	func toDefaultsDic() -> NSDictionary? {
+	public func toDefaultsDic() -> NSDictionary? {
 		guard let postalAddress = placemark.postalAddress,
 			let placemarkCoordinatesDic = placemark.location?.coordinate.toDefaultsDic()
 			else { return nil }
@@ -69,7 +69,7 @@ extension Location {
 		return dic as NSDictionary?
 	}
 	
-	class func fromDefaultsDic(_ dic: NSDictionary) -> Location? {
+	public class func fromDefaultsDic(_ dic: NSDictionary) -> Location? {
 		guard let placemarkCoordinatesDic = dic[LocationDicKeys.placemarkCoordinates] as? NSDictionary,
 			let placemarkCoordinates = CLLocationCoordinate2D.fromDefaultsDic(placemarkCoordinatesDic),
 			let placemarkAddressDic = dic[LocationDicKeys.placemarkAddressDic] as? [String: AnyObject]

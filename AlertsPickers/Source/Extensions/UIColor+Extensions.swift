@@ -24,7 +24,7 @@ extension UIColor {
     }
     
     /// Color to Image
-    func toImage(size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    public func toImage(size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect:CGRect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
         self.setFill()
@@ -100,14 +100,14 @@ extension UIColor {
 // MARK: - Initializers
 public extension UIColor {
     
-    convenience init(hex: Int, alpha: CGFloat) {
+    public convenience init(hex: Int, alpha: CGFloat) {
         let r = CGFloat((hex & 0xFF0000) >> 16)/255
         let g = CGFloat((hex & 0xFF00) >> 8)/255
         let b = CGFloat(hex & 0xFF)/255
         self.init(red: r, green: g, blue: b, alpha: alpha)
     }
     
-    convenience init(hex: Int) {
+    public convenience init(hex: Int) {
         self.init(hex: hex, alpha: 1.0)
     }
     
@@ -117,7 +117,7 @@ public extension UIColor {
      - parameter hexString: HEX String in "#363636" format
      - returns: UIColor from HexString
      */
-    convenience init(hexString: String) {
+    public convenience init(hexString: String) {
         
         let hexString: String       = (hexString as NSString).trimmingCharacters(in: .whitespacesAndNewlines)
         let scanner                 = Scanner(string: hexString as String)

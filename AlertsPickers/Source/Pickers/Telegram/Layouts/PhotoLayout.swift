@@ -6,7 +6,7 @@ protocol PhotoLayoutDelegate: class {
 }
 
 
-class PhotoLayout: UICollectionViewLayout {
+public class PhotoLayout: UICollectionViewLayout {
     
     weak var delegate: PhotoLayoutDelegate!
     
@@ -18,7 +18,7 @@ class PhotoLayout: UICollectionViewLayout {
     fileprivate var contentSize: CGSize = .zero
     public var selectedCellIndexPath: IndexPath?
     
-    override var collectionViewContentSize: CGSize {
+    public override var collectionViewContentSize: CGSize {
         return contentSize
     }
     
@@ -42,7 +42,7 @@ class PhotoLayout: UICollectionViewLayout {
         super.invalidateLayout()
     }
     
-    override func prepare() {
+    public override func prepare() {
         super.prepare()
         previousAttributes = currentAttributes
         
@@ -73,23 +73,23 @@ class PhotoLayout: UICollectionViewLayout {
         contentSize.height = height
     }
     
-    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    public override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return previousAttributes[itemIndexPath.item]
     }
     
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return currentAttributes[indexPath.item]
     }
     
-    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    public override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return layoutAttributesForItem(at: itemIndexPath)
     }
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return currentAttributes.filter { rect.intersects($0.frame) }
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         let oldBounds = collectionView.bounds
         if !oldBounds.size.equalTo(newBounds.size) {
             return true
@@ -99,7 +99,7 @@ class PhotoLayout: UICollectionViewLayout {
     
     
     
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         Log(selectedCellIndexPath)
         guard let selectedCellIndexPath = selectedCellIndexPath else { return proposedContentOffset }
         Log(selectedCellIndexPath)

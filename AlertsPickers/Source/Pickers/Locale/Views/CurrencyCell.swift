@@ -1,6 +1,6 @@
 import UIKit
 
-final class CurrencyTableViewCell: UITableViewCell {
+public final class CurrencyTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: CurrencyTableViewCell.self)
     
@@ -11,15 +11,15 @@ final class CurrencyTableViewCell: UITableViewCell {
         contentView.backgroundColor = nil
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         accessoryType = selected ? .checkmark : .none
     }

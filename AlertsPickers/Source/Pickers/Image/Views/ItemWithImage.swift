@@ -1,6 +1,6 @@
 import UIKit
 
-class ItemWithImage: UICollectionViewCell {
+public class ItemWithImage: UICollectionViewCell {
     
     static let identifier = String(describing: CurrencyTableViewCell.self)
     
@@ -70,7 +70,7 @@ class ItemWithImage: UICollectionViewCell {
         updateAppearance(forPoint: selectedPoint)
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
         contentView.size = size
         layout()
         return size

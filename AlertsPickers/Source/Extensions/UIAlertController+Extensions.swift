@@ -97,14 +97,14 @@ extension UIAlertController {
     ///   - title: alert title
     ///   - font: alert title font
     ///   - color: alert title color
-    func set(title: String?, font: UIFont, color: UIColor) {
+    public func set(title: String?, font: UIFont, color: UIColor) {
         if title != nil {
             self.title = title
         }
         setTitle(font: font, color: color)
     }
     
-    func setTitle(font: UIFont, color: UIColor) {
+    public func setTitle(font: UIFont, color: UIColor) {
         guard let title = self.title else { return }
         let attributes: [NSAttributedStringKey: Any] = [.font: font, .foregroundColor: color]
         let attributedTitle = NSMutableAttributedString(string: title, attributes: attributes)
@@ -117,14 +117,14 @@ extension UIAlertController {
     ///   - message: alert message
     ///   - font: alert message font
     ///   - color: alert message color
-    func set(message: String?, font: UIFont, color: UIColor) {
+    public func set(message: String?, font: UIFont, color: UIColor) {
         if message != nil {
             self.message = message
         }
         setMessage(font: font, color: color)
     }
     
-    func setMessage(font: UIFont, color: UIColor) {
+    public func setMessage(font: UIFont, color: UIColor) {
         guard let message = self.message else { return }
         let attributes: [NSAttributedStringKey: Any] = [.font: font, .foregroundColor: color]
         let attributedMessage = NSMutableAttributedString(string: message, attributes: attributes)
@@ -136,7 +136,7 @@ extension UIAlertController {
     /// - Parameters:
     ///   - vc: ViewController
     ///   - height: height of content viewController
-    func set(vc: UIViewController?, width: CGFloat? = nil, height: CGFloat? = nil) {
+    public func set(vc: UIViewController?, width: CGFloat? = nil, height: CGFloat? = nil) {
         guard let vc = vc else { return }
         setValue(vc, forKey: "contentViewController")
         if let height = height {

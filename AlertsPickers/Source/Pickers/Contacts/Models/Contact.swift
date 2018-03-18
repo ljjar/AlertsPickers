@@ -47,11 +47,11 @@ public struct Contact {
         }
     }
     
-    var displayName:  String {
+    public var displayName:  String {
         return firstName + " " + lastName
     }
     
-    var initials: String {
+    public var initials: String {
         var initials = String()
         if let first = firstName.first { initials.append(first) }
         if let second = lastName.first { initials.append(second) }
