@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.swift_version = "4.0"
   s.name         = "AlertsPickers"
-  s.version      = "1.4.2"
+  s.version      = "1.4.1"
   s.summary      = "AlertsPickers ref to dillidon alerts-and-pickers project"
   s.description  = <<-DESC
                     ref to https://github.com/dillidon/alerts-and-pickers.git
